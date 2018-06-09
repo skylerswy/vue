@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue过度动画</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+    <div id="itany" class="itany">
+        <button @click="flag=!flag">按钮</button>
+        <hr>
+        <transition name="fade"
+        @before-enter="beforeEnter"
+		@enter="enter"
+		@after-enter="afterEnter"
+		@before-leave="beforeLeave"
+		@leave="leave"
+		@after-leave="afterLeave">
+            <p v-show="flag">过渡练习</p>  
+        </transition>
+    </div>
+
+    <div id="itany2" class="itany2">
+        <button @click="flag=!flag">animate按钮</button>
+        <hr>
+        <input type="text" v-model="name">
+        <transition-group enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+            <!-- <p v-show="flag" :key="1">animate过度1</p> 
+            <p v-show="flag" :key="2">animate过度2</p>  -->
+            <p v-for="(v,k) in arr2" :key="k" v-show="flag" >
+                {{v}}
+            </p>
+        </transition-group>
+        
+
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
