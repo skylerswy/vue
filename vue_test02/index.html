@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="itany">
+        <button @click="send">发送ajax请求</button>
+        <button @click="sendGet">get发送ajax请求</button>
+        <button @click="sendPost">post发送ajax请求</button>
+        <hr>
+        <br>
+        github id:<input type="text" v-model="uid">
+        <button @click="getid(uid)">获取指定github信息且显示</button>
+        <br>
+        昵称：{{user.name}}<br>
+        头像：<img :src="user.avatar_url">
+        <br>
+        <button @click="sendjsonp">发送jsonp请求</button>
+    </div>
+
+    <!-- 计算属性 -->
+    <div id="itany2">
+        {{msg}}
+        <br>
+        {{msg2}}
+        <!-- 对数据进行反转 -->
+        <br>
+        {{reversemsg}}
+        <br>
+        <button @click="change">修改msg的值</button>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src = "js/vue-resource.min.js"></script> 
+    <script src="js/file.js"></script>
+</body>
+</html>

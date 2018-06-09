@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue_表单</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/file.css">
+</head>
+<body>
+    <div id="addnew" class="container">
+        <h2 class="text-center">添加新用户</h2>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 col-sm-offset-2">名 称:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="name" v-model="user.name" placeholder="请输入名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age" class="col-sm-2 col-sm-offset-2">年 龄：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="age" v-model="user.age" placeholder="请输入年龄">
+                </div>
+            </div>
+            <div class="form-group" >
+                <label for="emile" class="col-sm-2 col-sm-offset-2">邮 箱：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="emile" v-model="user.emile" placeholder="请输入邮箱">
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-default" v-on:click="adduser">提交</button>
+                <button  class="btn btn-default" v-on:click="deluser">重置</button>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-hover">
+            <caption class="h3 text-center">用户列表</caption>
+            <thead>
+                <tr>
+                    <td>序列</td>
+                    <td>名称</td>
+                    <td>年龄</td>
+                    <td>邮箱</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(user,index) in users">
+                    <td>{{index+1}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.emile}}</td>
+                    <td>
+                        <button class="btn btn-default" v-on:click="deluser">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-right">
+                        <button class="btn btn-warning" v-on:click="delall">删除所有</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+        
+
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/file.js"></script>
+</body>
+</html>

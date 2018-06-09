@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+		.current{
+			background-color:#ccc;
+		}
+	</style>
+</head>
+<body>
+    <div id="itany">
+        <input type="text" v-model="keyword" @keyup="getData($event)" @keydown.down="changeDown" @keydown.up.prevent="changeUp">
+        <ul>
+            <li v-for="(value,index) in mydata" :class="{current:index==now}">
+                {{value}}
+            </li>
+        </ul>
+    </div>
+    <p v-show = "mydata.length==0">暂无结果.........</p>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.min.js"></script>
+    <script src="js/file.js"></script>
+</body>
+</html>

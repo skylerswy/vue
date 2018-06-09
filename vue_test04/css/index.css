@@ -1,0 +1,14 @@
+.itany div{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.a {
+    background-color: brown;
+}
+
+.b {
+    background-color: burlywood;
+    right: 0;
+}
