@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件间数据传递</title>
+</head>
+<body>
+    <div id="itany">
+        <my-hello></my-hello>
+        <!-- <my-world></my-world>报错 -->
+    </div>
+    <template id="hello">
+        <div>
+            <h3>我是hello父组件</h3>
+            <h3>访问父组件数据：{{msg}},{{name}},{{age}},{{user.id}}</h3>
+            <h3>访问子组件数据：{{sex}},{{height}}</h3>
+            <hr>
+            <!-- 子组件访问父组件的值 props接收-->
+            <!-- 调用子组件 -->
+            <my-world :message="msg" :name="name" :age="age" @e-world="getData"></my-world>
+        </div>
+    </template>
+    <template id="world">
+        <div>
+            <h3>我是world子组件</h3>
+            <h3>访问父组件的数据:{{message}},{{name}},{{age}},{{user}}</h3>
+            <h3>访问自己的数据：{{sex}},{{height}}</h3>
+            <button @click="send">讲子组件的数据向上传递给父组件</button>
+        </div>
+    </template>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
