@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非父子组件间的通信</title>
+</head>
+<body>
+    <!-- 创建一个空的vue实例作为中央数据总线,用它来触发监听事件 -->
+    <div id="itany">
+        <my-a></my-a>
+        <my-b></my-b>
+        <my-c></my-c>
+    </div>
+    <template id="a">
+        <div>
+            <h3>A组件:{{name}}</h3>
+            <button @click="send">将A数据发生给组件B</button>
+        </div>
+    </template>
+    <template id="b">
+        <div>
+            <h3>B组件:{{age}}</h3>
+        </div>
+    </template>   
+    <template id="c">
+        <div>
+            <h3>C组件:{{name}},{{age}}</h3>
+        </div>
+    </template>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
