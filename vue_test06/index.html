@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件分类，组件模板,动态组件</title>
+</head>
+<body>
+    <div id="itany">
+        <!-- 全局组件 -->
+        <my-world></my-world>
+        <!-- 局部组件 -->
+        <my-hello></my-hello>
+        <!-- 引用模板 -->
+        <my-test></my-test>
+        <!-- 动态组件 -->
+        <button @click="flag='my-active'">显示动态组件a</button>
+        <button @click="flag='my-active2'">显示动态组件b</button>
+        <div>
+            <!-- keep-alive不再重新创建，可保留 -->
+            <keep-alive>
+                <component :is="flag"></component>
+            </keep-alive>
+        </div>
+       
+    </div>
+
+    <template id="wbs">
+        <!-- 只能有一个根元素，不然报错 -->
+        <div>
+            <h1>{{msg}}</h1>
+            <ul>
+                <li v-for="value in arr">{{value}}</li>
+            </ul> 
+        </div>
+    </template>
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
