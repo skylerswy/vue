@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由的基本用法</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        .active{
+            text-decoration: none;
+            color: brown;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="itany">
+        <div>
+            <!-- 使用router-link组件来定义导航，to属性指定链接url -->
+            <router-link to="/home">主页</router-link>
+            <router-link to="/user">用户</router-link>
+        </div>
+        <div>
+            <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+                <!-- router-view用来显示路由内容 -->
+                <router-view></router-view>
+            </transition>
+        </div>    
+    <button @click="push">添加路由</button> 
+    <button @click="replace">替换路由</button>
+    </div>
+    <template id="user">
+        <div>
+            <h3>用户信息</h3>
+            <ul>
+                <!-- <li><router-link to="/user/login">用户登录</router-link></li>
+                <li><router-link to="/user/regist">用户注册</router-link></li> -->
+                <router-link to="/user/login?name=tom&pwd=123" tag="li">用户登录</router-link>
+                <router-link to="/user/regist/alice/456" tag="li">用户注册</router-link>
+            </ul>
+            <router-view></router-view>
+        </div>
+    </template>
+    <hr>
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
